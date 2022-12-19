@@ -9,6 +9,7 @@ import {AuthGuard} from "./_auth/auth.guard";
 import {AddNewProductComponent} from "./add-new-product/add-new-product.component";
 import {ShowProductDetailsComponent} from "./show-product-details/show-product-details.component";
 import {ProductResolveService} from "./_services/product-resolve.service";
+import {ProductViewComponent} from "./product-view/product-view.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     }
   },
   {path:'showProductDetails',component:ShowProductDetailsComponent,canActivate:[AuthGuard],data:{roles: ['Admin']}},
+  {path:'productView',component:ProductViewComponent,resolve:{product: ProductResolveService}},
 ];
 
 @NgModule({
