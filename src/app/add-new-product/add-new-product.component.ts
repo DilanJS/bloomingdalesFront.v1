@@ -6,6 +6,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import * as events from "events";
 import {FileHandle} from "../_model/file-handle.model";
 import {DomSanitizer} from "@angular/platform-browser";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-add-new-product',
@@ -14,19 +15,29 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class AddNewProductComponent implements OnInit {
 
+  isNewProduct = true;
+
   product: Product = {
+    productId:0,
     productName: "",
     productDescription: "",
     productDiscountedPrice: 0,
     productActualPrice: 0,
     productImages: []
-  }
+  };
 
   constructor(private productService: ProductService,
-              private sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer,
+              private activatedRoute:ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.product=this.activatedRoute.snapshot.data['product'];
+
+    if(this.product && this.product.productId){
+      this.isNewProduct=false;
+    }
+
   }
 
   addProduct(productForm: NgForm) {
@@ -37,6 +48,7 @@ export class AddNewProductComponent implements OnInit {
       (response: Product) => {
         productForm.reset();
         this.product.productImages=[];
+        this.isNewProduct=true;
       },
       (error: HttpErrorResponse) => {
         console.log(error);

@@ -21,4 +21,8 @@ export class ProductService {
   public deleteProduct(productId:number){
     return this.httpClient.delete<Product>("http://localhost:8080/deleteProductDetails/"+productId);
   }
+
+  public getProductDetailsById(productId:any){
+    return this.httpClient.get<Product>("http://localhost:8080/getProductDetailsById/"+productId);
+  }
 }
