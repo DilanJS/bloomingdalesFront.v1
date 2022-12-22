@@ -29,6 +29,9 @@ import {MatTableModule} from "@angular/material/table";
 import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ProductViewComponent } from './product-view/product-view.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { ProductViewComponent } from './product-view/product-view.component';
     DragDirective,
     ShowProductDetailsComponent,
     ShowProductImagesDialogComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    BuyProductComponent,
+    OrderConfirmationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
