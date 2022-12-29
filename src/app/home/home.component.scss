@@ -16,3 +16,8 @@ mat-grid-tile{
   height: 300px;
 
 }
+.product:hover{
+  box-shadow: -1px 1px 16px 13px rgba(194,182,182,0.41);
+  -webkit-box-shadow: -1px 1px 16px 13px rgba(194,182,182,0.41);
+  -moz-box-shadow: -1px 1px 16px 13px rgba(194,182,182,0.41);
+}

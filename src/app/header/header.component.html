@@ -1,12 +1,12 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="toolbar">
   <span>
-    E-Commerce Application
+    Bloomingdals
   </span>
   <button mat-button routerLink="/home">Home</button>
   <span class="space-button"></span>
-  <button *ngIf="!isLoggedIn()" routerLink="/login" mat-raised-button color="primary">Login</button>
+  <button *ngIf="!isLoggedIn()" class="login-button" routerLink="/login" mat-raised-button color="primary">Login</button>
 
-  <button *ngIf="isLoggedIn()" (click)="logOut()" mat-raised-button color="warn">Logout</button>
+  <button *ngIf="isLoggedIn()"  (click)="logOut()" mat-raised-button color="warn">Logout</button>
 </mat-toolbar>
 
 <mat-toolbar *ngIf="isLoggedIn()">
@@ -15,3 +15,5 @@
 
   <button *ngIf="isAdmin()" mat-button routerLink="/showProductDetails">Show Product Details</button>
 </mat-toolbar>
+
+
